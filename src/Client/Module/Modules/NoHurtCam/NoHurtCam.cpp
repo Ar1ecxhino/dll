@@ -1,5 +1,4 @@
 #include "NoHurtCam.hpp"
-
 #include "Events/EventManager.hpp"
 
 NoHurtCam::NoHurtCam(): Module("No Hurt Cam", "Disables hurt camera animation", IDR_REACH_PNG, "") {
@@ -24,15 +23,15 @@ NoHurtCam::NoHurtCam(): Module("No Hurt Cam", "Disables hurt camera animation", 
 }
 
 void NoHurtCam::onEnable() {
-    Listen(this, RaknetTickEvent, &NoHurtCam::onRaknetTick)
-    Listen(this, TickEvent, &NoHurtCam::onTick)
+    Listen(this, RaknetTickEvent, &NoHurtCam::onRaknetTick);
+    Listen(this, TickEvent, &NoHurtCam::onTick);
     Module::onEnable();
 }
 
 void NoHurtCam::onDisable() {
     if (patched) unpatch();
-    Deafen(this, RaknetTickEvent, &NoHurtCam::onRaknetTick)
-    Deafen(this, TickEvent, &NoHurtCam::onTick)
+    Deafen(this, RaknetTickEvent, &NoHurtCam::onRaknetTick);
+    Deafen(this, TickEvent, &NoHurtCam::onTick);
     Module::onDisable();
 }
 
@@ -74,10 +73,7 @@ void NoHurtCam::unpatch() {
 }
 
 void NoHurtCam::onRaknetTick(RaknetTickEvent &event) {
-
-            this->restricted = false;
-        }
-    }
+    this->restricted = false;
 }
 
 void NoHurtCam::onTick(TickEvent &event) {
