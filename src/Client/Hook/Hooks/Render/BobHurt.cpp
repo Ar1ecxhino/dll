@@ -8,8 +8,6 @@ void BobHurtHook::enableHook() {
 }
 
 void BobHurtHook::BobHurtCallback(void *_this, glm::mat4* matrix) {
-    auto event = nes::make_holder<BobHurtEvent>(matrix);
-    eventMgr.trigger(event);
-
-    return funcOriginal(_this, event->matrix);
+    // Block the hurt camera effect completely
+    return; 
 }
