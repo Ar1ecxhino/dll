@@ -13,7 +13,7 @@ void FreeLook::onSetup() {
              serverIP.find("galaxite") != std::string::npos ||
              serverIP.find("venity") != std::string::npos)) { // TODO: make it only show once per server switch?
             FlarialGUI::Notify("Can't use freelook on " + serverIP); // TODO: move restrictions to API
-            this->restricted = true;
+            this->restricted = false;
         }
         else {
             this->restricted = false;
