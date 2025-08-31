@@ -74,14 +74,7 @@ void NoHurtCam::unpatch() {
 }
 
 void NoHurtCam::onRaknetTick(RaknetTickEvent &event) {
-    if (this->isEnabled()) {
-        std::string serverIP = SDK::getServerIP();
-        if (serverIP.find("hive") != std::string::npos) {
-            if (!this->restricted) {
-                FlarialGUI::Notify("Can't use No Hurt Cam on " + serverIP); // TODO: move restrictions to API
-                this->restricted = true;
-            }
-        } else {
+
             this->restricted = false;
         }
     }
